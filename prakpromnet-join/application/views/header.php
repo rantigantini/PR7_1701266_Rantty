@@ -4,8 +4,7 @@
 	<title>Belajar Join</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-	<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/pulse/bootstrap.min.css" rel="stylesheet" integrity="sha384-/uQFqO50IaQu2rNJYKPpV7zwsWJtd6V4DGX4wMw1ATz4KPuZEV96qQ2heVAw2kr2" crossorigin="anonymous">
-
+	<link rel="stylesheet" href="<?php echo base_url() ?>bootstrap.css">
 	</head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
