@@ -1,0 +1,43 @@
+Nama 	: Fenny Feronika Maharani
+NIM 	: 1703015
+
+1. Inner Join
+
+		 	$this->db->select('lokomotif.nama AS NamaKereta,kursi.kd_kursi AS KodeKursi, gerbong.nama AS NamaGerbong, kursi.kd_gerbong AS KodeGerbong, kursi.kd_kereta AS KodeKereta' );
+			$this->db->from('lokomotif');
+			$this->db->join('kursi','kursi.kd_kereta=lokomotif.kd_kereta','inner');		
+			$this->db->join('gerbong','kursi.kd_gerbong=gerbong.kd_gerbong','inner');
+
+			atau
+
+			SELECT 'lokomotif.nama AS NamaKereta','kursi.kd_kursi AS KodeKursi', 'gerbong.nama AS NamaGerbong', 'kursi.kd_gerbong AS KodeGerbong', 'kursi.kd_kereta AS KodeKereta'
+			FROM (`lokomotif`) 
+			INNER JOIN `kursi` ON `kursi`.`kd_kereta`=`lokomotif`.`kd_kereta` 
+			INNER JOIN `gerbong` ON `gerbong`.`kd_gerbong`=`kursi`.`kd_gerbong`
+
+Inner Join merupakan perintah untuk menampilkan semua data yang mempunyai nilai sama, kita bisa lihat pada perintah ON `kursi`.`kd_kereta`=`lokomotif`.`kd_kereta` yang artinya data yang ditampilkan adalah data yang sama dan berhubungan antara kd_kereta yang ada pada tabel kursi dengan kd_kereta pada tabel lokomotif . 
+
+2. Left Join
+
+	$this->db->select('lokomotif.nama AS Nama, lokomotif.kd_kereta AS KodeKereta, kursi.kd_gerbong AS KodeGerbong, kursi.kd_kursi as KodeKursi');
+	$this->db->from('lokomotif');
+	$this->db->join('kursi', 'lokomotif.kd_kereta = kursi.kd_kereta','Left');
+
+		      atau
+
+	SELECT 'lokomotif.nama AS Nama', 'lokomotif.kd_kereta AS KodeKereta', 'kursi.kd_gerbong AS KodeGerbong',' kursi.kd_kursi as KodeKursi' 
+	FROM (`lokomotif`) 
+	Left JOIN `kursi` ON 'lokomotif'.'kd_kereta' = 'kursi'.'kd_kereta
+
+ Left Join merupakan cara menghubungkan tabel dan menampilkan semua data (kiri) pada tabel yang tidak berhubungan, sedangkan data yang kosong akan bernilai NULL.
+
+3. Right Join
+     $this->db->select('gerbong.nama AS Nama, gerbong.kd_kereta AS KodeKereta, kursi.kd_gerbong AS KodeGerbong, kursi.kd_kursi as KodeKursi');
+	 $this->db->from('gerbong');
+	 $this->db->join('kursi', 'gerbong.kd_gerbong = kursi.kd_gerbong','Right');
+
+	 SELECT 'gerbong.nama AS Nama', 'gerbong.kd_kereta AS KodeKereta', 'kursi.kd_gerbong AS KodeGerbong', 'kursi.kd_kursi as KodeKursi'
+	FROM (`gerbong`) 
+	Right JOIN `kursi` ON 'gerbong'.'kd_gerbong' = 'kursi'.'kd_gerbong'
+
+Right Join hampir sama dengan fungsi Left Join ataupun kebalikannya, dimana Right Join akan menghubungkan tabel dan menampilkan semua data (kanan) pada tabel yang tidak berhubungan, dan data yang kosong akan bernilai NULL.
